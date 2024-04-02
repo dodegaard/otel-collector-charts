@@ -11,7 +11,7 @@ otlpDestinationOverride: ""
 ##  DotNet: instrumentation.opentelemetry.io/inject-dotnet: "true"
 ##  OpenTelemetry SDK environment variables only: instrumentation.opentelemetry.io/inject-sdk: "true"
 autoinstrumentation:
-  enabled: false
+  enabled: true
   ## The collector name to send traces to
   collectorTarget: traces
   propagators:
@@ -30,7 +30,7 @@ autoinstrumentation:
     type: parentbased_traceidratio
     ## The value depends on the sampler type.
     ## For instance for parentbased_traceidratio sampler type it is a number in range [0..1] e.g. 0.25.
-    argument: "0.25"
+    argument: "1"
 
   ## A list of corev1.EnvVars
   env: []
@@ -423,7 +423,7 @@ clusterCollector:
 
 ## Default collector for tracing
 tracesCollector:
-  enabled: false
+  enabled: true
   name: traces
   clusterName: ""
   image: otel/opentelemetry-collector-contrib:0.96.0
@@ -539,7 +539,7 @@ tracesCollector:
           exporters: [otlp]
 
 logsCollector:
-  enabled: false
+  enabled: true
   name: logs
   clusterName: ""
   image: otel/opentelemetry-collector-contrib:0.96.0
